@@ -14,8 +14,8 @@ import deepl, os, argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--infile', dest='infile', type=str, help='Input file')
 parser.add_argument('--outfile', dest='outfile', type=str, help='Output file')
-parser.add_argument('--lang', dest='lang', type=str, help='Language. Default: Simplified Chinese. 2 letter code. Please refer to https://developers.deepl.com/docs/resources/supported-languages')
-parser.add_argument('--api', dest='apikey', type=str, help='DeepL API key. (Account required, with a free plan chosen. No cost, 500,000 characters / month. Card needed for account verification purposes only)')
+parser.add_argument('--lang', dest='lang', type=str, help='Language. Default: Simplified Chinese. Usually a 2 letter code. Please refer to https://developers.deepl.com/docs/resources/supported-languages')
+parser.add_argument('--api', dest='apikey', type=str, help='DeepL API key. (Account required, with a free plan chosen. First month free, 500,000 characters / month. Credit card needed)')
 args = parser.parse_args()
 
 #Input and output file variables
@@ -66,7 +66,7 @@ else:
 #Default file path, which includes an underscore and the language code
 if args.outfile == None:
     froot, fext = os.path.splitext(patha)
-    pathb = os.path.dirname(patha) + os.path.splitext(os.path.basename(patha))[0] + "_" + args.lang + fext#get_file_name(args.infile + "ZH-HANS")
+    pathb = os.path.dirname(patha) + os.path.splitext(os.path.basename(patha))[0] + "_" + args.lang + fext
     args.outfile = pathb
     print("Default file name: ",os.path.splitext(os.path.basename(patha))[0] + "_" + args.lang)
 else:
